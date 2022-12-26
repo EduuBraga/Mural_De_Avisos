@@ -1,29 +1,21 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const modelPosts = require('./model/posts')
 
 const server = express();
 const PORT = 3000;
 
-const posts = [
-  {
-    id: 1,
-    title: 'Título do post',
-    description: 'Descrição do post'
-  }
-];
-
-const idGenerator = () => Math.random().toString(36).slice(2);
-
 server.get('/all', (req, res) => {
-  res.json(JSON.stringify(posts));
+  const allPosts = modelPosts.getAll();
+  const JSONAllPosts = JSON.stringify(allPosts);
+
+  res.json(JSONAllPosts);
 });
 
 server.post('/new', bodyParser.json(), (req, res) => {
-  let id = idGenerator();
-  let title = req.body.title;
-  let description = req.body.description;
+  const { title, description } = req.body;
 
-  posts.push({id, title, description});
+  modelPosts.newPost(title, description)
 
   res.send('Post adicionado com sucesso!');
 });
