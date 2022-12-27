@@ -1,0 +1,82 @@
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: monospace;
+  outline: none;
+}
+
+body{
+  background-color: #262626;
+  color: #f1f2f2;
+}
+
+.container-form{
+  max-width: 768px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.container-form h2{
+  margin-top: 32px;
+  padding: 12px;
+}
+
+.container-form form{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+}
+
+.container-form form input, .container-form form button{
+  padding: 8px 12px;
+  background-color: #505050;
+  border: none;
+  color: #f1f2f2;
+  border-radius: 4px;
+}
+
+.container-form form button{
+  cursor: pointer;
+}
+
+.container-main{
+  max-width: 768px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.container-main h2{
+  margin-top: 64px;
+}
+
+#posts{
+  width: 100%;
+}
+
+.card-post{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+
+  background-color: #505050;
+  margin: 0 auto;
+  width: 100%;
+  padding: 12px 16px;
+  margin-bottom: 12px;
+}
+
+.content-card-post-top{
+  font-size: 20px;
+  width: 100%;
+  border-bottom: 1px solid #999;
+  padding-bottom: 4px;
+}
