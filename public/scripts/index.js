@@ -7,7 +7,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
 form.addEventListener('submit', event => {
   event.preventDefault()
+  const { title, desc } = event.target
 
+  const options = {
+    method: 'POST',
+    headers: new Headers({ 'content-type': 'application/json' }),
+    body: JSON.stringify({ title: title.value, description: desc.value })
+  }
+
+  fetch('http://127.0.0.1:3000/post/new', options)
+    .then(res => {
+      getPosts()
+      event.target.reset()
+    })
 })
 
 const getPosts = async () => {
