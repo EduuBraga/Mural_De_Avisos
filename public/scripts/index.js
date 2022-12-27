@@ -27,9 +27,10 @@ const getPosts = async () => {
     .then(res => res.json());
 
   const posts = JSON.parse(JSONOfPosts);
+  let HTMLContainerPosts = ''
 
   posts.forEach(post => {
-    containerPosts.innerHTML += `
+    HTMLContainerPosts += `
       <div id="${post.id}" class="card-post">
         <div class="content-card-post-top">
           <h3>${post.title}</h3>
@@ -40,4 +41,6 @@ const getPosts = async () => {
       </div>
     `
   });
+
+  containerPosts.innerHTML = HTMLContainerPosts
 }
